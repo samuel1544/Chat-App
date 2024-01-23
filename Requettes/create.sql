@@ -1,0 +1,8 @@
+CREATE TABLE `chat`.`user` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(16) NOT NULL,
+  `email` VARCHAR(255) NULL,
+  `password` VARCHAR(32) NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `usercol` VARCHAR(45) NULL,
+  PRIMARY KEY (`Id`));
