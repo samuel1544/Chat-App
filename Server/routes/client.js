@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/all', async(req, res, next) =>{
     res.json(await client.getAll(req.body));
+    
 });
 
 router.get('/name', async(req, res, next) =>{
