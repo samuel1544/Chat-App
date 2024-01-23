@@ -20,6 +20,7 @@ router.get('/info', async(req, res, next) =>{
 
 router.post('/add', async(req, res, next) =>{
     res.json(await client.ajoutClient(req.body));
+    
 })
 
 router.post('/login', async(req, res, next) =>{
