@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: antiquewhite;
+}
+.ben{
+    background-color: blue;
+    margin: 100%;
+}
+#zed h1{
+    background-color: blue;
+    margin: 10%;
+}
+.man{
+    background-color: blue;
+    margin: 100%;
+}
+#zed{
+    background-color: blue;
+    margin: 100%;
+}
