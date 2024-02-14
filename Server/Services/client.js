@@ -153,6 +153,10 @@ async function ajoutClient(client){
   }
   else{
     const query = `INSERT INTO user(username,email,password) VALUES (?,?,?)`;
+    if(client.username == null || client.email == null){
+      msg = 'Please all fields are required!'
+      return msg;
+    }
     const salt = bcrypt.genSaltSync(10);
     const hash = await bcrypt.hashSync(client.password, salt);
     const params = [
@@ -163,7 +167,7 @@ async function ajoutClient(client){
     const result = await db.query(query, params);
     const data = helper.emptyRows(result);
     let msg = 'Something went wrong during the insertion';
-  
+    
     if(result != null){
       msg = 'Data entered sucessfuly!'
       return msg;

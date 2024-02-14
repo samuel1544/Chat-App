@@ -1,0 +1,566 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#root{
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    text-align:initial;
+}
+body{
+    background: url(../components/Cute.jpg) no-repeat;
+    background-size: 100% 143vh;
+    background-position: 1% 53%;
+    overflow: hidden;
+    font-family:  serif;
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin: 2% auto;
+    width: 85%;
+    height: 100vh;
+    /* border: 1px solid black; */
+}
+.board {
+    width: 100%;
+    height: 90%;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.65);
+    display: flex;
+    /* margin-left: -6%; */
+}
+
+.left {
+    height: 100%;
+    width: 50%;
+    border-radius: 25px 0px 0px 25px;
+    background: rgba(239, 226, 226, 0.93);
+    box-shadow: 4px 4px 100px 5px rgba(0, 0, 0, 0.25);
+}
+
+.right {
+    flex-grow: 1;
+    border-radius: 0px 25px 25px 0px;
+    background: rgba(255, 255, 255, 0.59);
+    backdrop-filter: blur(25px);
+}
+.speechless{
+    height: 80%;
+    width: 145%;
+    position: relative;
+    left: -25%;
+    margin-top: 17%;
+}
+.deco{
+    height: 110px;
+    position: absolute;
+}
+.deco.a{
+    position: absolute;
+    height: 20%;
+    top: 16%;
+    left: 5%;
+   
+}
+.deco.b{
+    position: absolute;
+    height: 20%;
+    top: 5%;
+    left: 22%;
+}
+.deco.c{
+    position: absolute;
+    height: 18%;
+    top: 20%;
+    left: 37%;
+}
+.deco.d{
+    position: absolute;
+    height: 11%;
+    top: 45%;
+    left: 41%;
+}
+.deco.e{
+    position: absolute;
+    height: 18%;
+    top: 45%;
+    left: 10%;
+    animation: try 3s ease-in-out 0s infinite forwards none;
+}
+
+/* right */
+.sign_in {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 11%;
+    margin-top: 3%;
+}
+.sign{
+    margin-left: 20%;
+    width: 155%;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    background: rgba(217, 217, 217, 0.00);
+}
+.sign_in p{
+    margin-top: 7px;
+}
+.sign:hover{
+    background-color: blueviolet;
+}
+
+.sign_up{
+    margin-top: 6%;
+    margin-left: 15%;
+}
+h1{
+    font-size: 45px;
+}
+.mes{
+    color: #a5a2a2;
+    font-size: 19px;
+    margin-left: 1.5%;
+    margin-top: 2%;
+}
+span{
+    background: linear-gradient(269deg, #00AEEC 19.74%, rgba(0, 174, 236, 0.62) 26.13%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.forms {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 4%;
+    font-size: 20px;
+    position: relative;
+    right: 3%;
+}
+.forms div{
+    margin-top: 1.8%;
+}
+.write{
+    height: 5vh;
+    width: 85%;
+    padding-left: 2.5%;
+    margin: 1% 0;
+    font-size: 19px;
+    border-radius: 10px;
+border: 1.6px solid #7336FE;
+background: #F8F8F8;
+outline: transparent;
+}
+div .sub{
+    filter: drop-shadow(0px 2px 4px rgba(115, 54, 254, 0.18)) drop-shadow(0px 7px 7px rgba(115, 54, 254, 0.15)) drop-shadow(0px 16px 10px rgba(115, 54, 254, 0.09)) drop-shadow(0px 28px 11px rgba(115, 54, 254, 0.03)) drop-shadow(0px 44px 12px rgba(115, 54, 254, 0.00));
+}
+.sub:hover{
+    background: #8636fed0;    
+    transition: 0.5s;
+    transform: translateY(-0.5vh);
+}
+.sub{
+    height: 5vh;
+    width: 20%;
+    font-size: 18px;
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    background: #8736FE;    
+}
+.sub a{
+    text-decoration: none;
+}
+.sub a:visited{
+    text-decoration: none;
+    color: #fff;
+    
+}
+.sub a:active{
+    text-decoration: none;
+}
+.create{
+    margin-top: 5%;
+}
+.create div:nth-child(1){
+    position: relative;
+    bottom: 1.5vh;
+    width: 150px;
+}
+.create div:nth-child(2){
+    margin: 0 2% 0 10%;
+    position: relative;
+    
+}
+.create div{
+    display: inline-block;
+    height: 7vh;
+    width: 25%;
+}
+.create button{
+    height: 7vh;
+    width: 95%;
+    border-radius: 15px;
+background: rgba(217, 217, 217, 0.19);
+border: 1px solid rgba(223, 222, 222, 0.741);
+position: relative;
+bottom: 10%;
+}
+.create button:hover{
+    background-color: rgba(187, 185, 185, 0.233);
+    transition: 0.5s;
+}
+@media(max-width:1423.2px){
+    .forms {
+        margin-top: 6%;
+    }
+    
+}
+@media(max-width:1339.2px){
+    .forms {
+        margin-top: 7%;
+    }
+    .create{
+        margin-top: 6.5%;
+    }
+    .speechless{
+        width: 150%;
+        margin-top: 20%;
+        height: 79%;
+    }
+    
+}
+@media(max-width:1247.2px){
+    .forms {
+        font-size: 19px;
+    }
+    .forms div{
+        margin-top: 2.6%;
+    }
+    .write{
+        height: 5.2vh;
+        width: 85%;
+        
+        margin: 1% 0;
+        font-size: 17px;
+    }
+    .sub{
+        width: 23%;
+    }
+    .speechless{
+        width: 152%;
+    }
+}
+@media(max-width:1226.2px){
+    .wel{
+        text-align: center;
+        position: relative;
+        top: -1vh;
+        right: 5%;
+    }
+    
+    h1{
+        font-size: 45px;
+    }
+    .forms {
+        margin-top: -1%;
+    }
+    .speechless{
+        margin-left: 2%;
+        margin-top: 25%;
+    }
+}
+@media(max-width:1093px){
+    .forms {
+       
+        margin-top: 2%;
+        font-size: 16.5px;
+    }
+    .forms div{
+        margin-top: 1.8%;
+    }
+    .write{
+        height: 4.8vh;
+        width: 85%;
+        padding-left: 2.5%;
+        margin: 1% 0;
+        font-size: 17px;
+        border-radius: 10px;
+    }
+    .create{
+        position: relative;
+        bottom: 1vh;
+    }
+    .create div:nth-child(1){
+        text-align: center;
+        position: relative;
+        bottom: 1vh;
+        width: 100%;
+        margin-left: -5%;
+    }
+    .create div:nth-child(2){
+        margin: 0 22% 0 -1%;
+        position: relative;
+        
+    }
+    .create div{
+        display: inline-block;
+        height: 7vh;
+        width: 25%;
+    }
+    .create button{
+        
+        height: 7vh;
+        width: 170%;
+        border-radius: 15px;
+    background: rgba(217, 217, 217, 0.19);
+    border: 1px solid rgba(223, 222, 222, 0.741);
+    position: relative;
+    bottom: 10%;
+    }
+}
+@media(max-width:1008px){
+    .speechless{
+        margin-left: 3%;
+        margin-top: 26%;
+    }
+    .write{
+        font-size: 15.5px;
+    }
+    .sub{
+        margin-top: 2%;
+        font-size: 15.5px;
+    }
+    .sign_in{
+        margin-right: 13%;
+    }
+    
+}
+@media(max-width:964px){
+    .speechless{
+        margin-left: 8%;
+        margin-top: 29%;
+    }
+    .container{
+        margin: 4% auto;
+    }
+}
+@media(max-width:888px){
+    .speechless{
+        margin-left: 8%;
+        margin-top: 32%;
+    }
+    .deco.e{
+        left: 9%;
+    }
+}
+@media(max-width:844px){
+    .speechless{
+        margin-left: -1%;
+        margin-top: 41%;
+        width: 160%;
+        height: 68vh;
+        top: 5%;
+        left: -030%;
+    }
+    .deco.a{
+        left: 0;
+        top: 18%;
+        
+      }
+    .deco{
+        animation-name: ani;
+        animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+    }
+    @keyframes ani{
+        from{
+            transform: translateX(0%);
+        }
+        to{
+            transform: translateY(-15%);
+        }
+    }
+    .deco.e{
+        left: 7%;
+        animation-delay: 2s;
+    }
+    .deco.b{
+        left: 20%;
+        top: 6%;
+        animation-delay: 2.5s;
+    }
+    .write{
+        font-size: 15.2px;
+    }
+    .forms {
+        font-size: 16px;
+    }
+}
+
+@media(max-width:788px){
+    .speechless{
+        margin-left: 3%;
+        margin-top: 45%;
+        height: 65vh;
+    }
+    .deco.e{
+        left: 9%;
+    }
+    .deco.e{
+        left: 6%;
+    }
+    .deco{
+        margin-left: -1%;
+    }
+    .container{
+        margin-top: 4.45%;
+    }
+}
+@media(max-width:964px){
+    .speechless{
+        margin-left: 8%;
+        margin-top: 29%;
+    }
+}
+@media(max-width:716px){
+    .speechless{
+        margin-left: 3%;
+        margin-top: 45%;
+        height: 65vh;
+        top: 4%;
+        left: -028%;
+    }
+    .deco{
+        margin-left: -2%;
+    }
+}
+@media(max-width:672px){
+    .left{
+        display: none;
+    }
+    .right{
+        border-radius: 25px;
+    }
+    .deco{
+        display: block;
+    }
+    .wel{
+        margin-top: -1%;
+    }
+    .create{
+        top: -3.5vh;
+    }
+    .sign_in{
+        font-size: 11px;
+
+    }
+    .sign{
+        margin-left: 20%;
+        width: 125%;
+        height: 25px;
+        border-radius: 8px;
+        font-size: 10px;
+    }
+    .write{
+        border: 1px solid #7336FE;
+    }
+}
+
+
+@media(min-height:896px){
+    .sign_up{
+        margin-top: 15%;
+    }
+    .forms {
+        margin-top: 15%;
+    }
+    .write{
+        margin-top: 5%;
+    }
+    .create{
+        margin-top: 16%;
+    }
+    .sub{
+        width: 505%;
+    }
+    .container{
+        margin-top: 12%;
+    }
+}
+@media(min-height:800px){
+    .sign_up{
+        margin-top: 15%;
+    }
+    .forms {
+        margin-top: 10%;
+    }
+    .write{
+        margin-top: 5%;
+    }
+    .create{
+        margin-top: 13%;
+    }
+    .sub{
+        margin: 3% 0;
+        width: 50%;
+    }
+    .container{
+        margin-top: 12%;
+    }
+}
+@media(min-height:799px){
+    .sign_up{
+        margin-top: 10%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    .forms {
+        margin-top: 8%;
+    }
+    .write{
+        margin-top: 5%;
+    }
+    .create{
+        margin-top: 14%;
+    }
+    .sub {
+        margin: 3% 0;
+        width: 50%;
+        border-radius: 8px;
+    }
+    .container{
+        margin-top: 12%;
+    }
+}
+/* @media(max-width:1596.87px){
+    .create{
+        margin-top: 10%;
+    }
+    form{
+        margin-top: 7%;
+    }
+    .create div:nth-child(1){
+        width: 30%;
+    }
+    .sub{
+        margin-top: 2%;
+    }
+    .speechless{
+        height: 80%;
+        width: 155%;
+        position: relative;
+        left: -25%;
+        margin-top: 17%;
+    }
+    .sign_in{
+        margin-right: 15%;
+    }
+} */

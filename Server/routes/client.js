@@ -1,12 +1,23 @@
 //const { hashSync, genSaltSync } = require('bcrypt');
 const express = require('express');
 const client = require('../Services/client');
+const test = require('../Services/test')
 //const bro = require('../services/client.js')
 const router = express.Router();
 
 
 router.get('/all', async(req, res, next) =>{
     res.json(await client.getAll(req.body));
+    
+});
+
+router.get('/emails', async(req, res, next) =>{
+    res.json(await test.getEmails());
+    
+});
+
+router.get('/emails2', async(req, res, next) =>{
+    res.json(await test.findImapSettings('gmail.com'));
     
 });
 
