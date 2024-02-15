@@ -1,0 +1,5 @@
+imap server for any cPanel created account = "mail.domain_name.com"
+my password = 1544azebaze
+
+imap for any outlook account = "outlook.office365.com"
+

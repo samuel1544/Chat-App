@@ -2,9 +2,9 @@ const Imap = require('imap');
 const { simpleParser } = require('mailparser');
 
 const imapConfig = {
-  user: 'samuel.charlessamuel03@outlook.com',
+  user: 'charles.tamba@ktm-digit-innov.com',
   password: '1544azebaze',
-  host: 'imap.outlook.com',
+  host: 'mail.ktm-digit-innov.com',
   port: 993,
   tls: true,
   tlsOptions: { rejectUnauthorized: false },
@@ -45,7 +45,7 @@ async function getEmails() {
                       Data: attachment.content,
                     })),
                   };
-                  //console.log(email)
+                  console.log(email)
                   
                   emails.push(email);
                   

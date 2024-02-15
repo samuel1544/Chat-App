@@ -1,5 +1,5 @@
 import React from 'react'
-import './Sign.css'
+
 import notif from '../components/notif.png'
 import emoji from '../components/emoji.png'
 import a from '../components/1.png'
