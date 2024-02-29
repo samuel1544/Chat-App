@@ -3,3 +3,30 @@ my password = 1544azebaze
 
 imap for any outlook account = "outlook.office365.com"
 
+Dossier Sent (Envoyés) :
+
+['SENT', 'ALL'] : Récupère tous les messages dans le dossier Sent.
+['SENT', 'UNSEEN'] : Récupère les messages non lus dans le dossier Sent.
+['SENT', 'SEEN'] : Récupère les messages lus dans le dossier Sent.
+['SENT', 'FLAGGED'] : Récupère les messages marqués avec un drapeau dans le dossier Sent.
+['SENT', 'UNFLAGGED'] : Récupère les messages non marqués avec un drapeau dans le dossier Sent.
+['SENT', 'NEW'] : Récupère les messages récemment arrivés mais non lus dans le dossier Sent.
+['SENT', 'OLD'] : Récupère les messages qui ne sont pas récemment arrivés (messages lus) dans le dossier Sent.
+Dossier Important :
+
+['IMPORTANT', 'ALL'] : Récupère tous les messages dans le dossier Important.
+['IMPORTANT', 'UNSEEN'] : Récupère les messages non lus dans le dossier Important.
+['IMPORTANT', 'SEEN'] : Récupère les messages lus dans le dossier Important.
+['IMPORTANT', 'FLAGGED'] : Récupère les messages marqués avec un drapeau dans le dossier Important.
+['IMPORTANT', 'UNFLAGGED'] : Récupère les messages non marqués avec un drapeau dans le dossier Important.
+['IMPORTANT', 'NEW'] : Récupère les messages récemment arrivés mais non lus dans le dossier Important.
+['IMPORTANT', 'OLD'] : Récupère les messages qui ne sont pas récemment arrivés (messages lus) dans le dossier Important.
+Dossier Draft (Brouillons) :
+
+['DRAFT', 'ALL'] : Récupère tous les messages dans le dossier Draft.
+['DRAFT', 'UNSEEN'] : Récupère les messages non lus dans le dossier Draft.
+['DRAFT', 'SEEN'] : Récupère les messages lus dans le dossier Draft.
+['DRAFT', 'FLAGGED'] : Récupère les messages marqués avec un drapeau dans le dossier Draft.
+['DRAFT', 'UNFLAGGED'] : Récupère les messages non marqués avec un drapeau dans le dossier Draft.
+['DRAFT', 'NEW'] : Récupère les messages récemment arrivés mais non lus dans le dossier Draft.
+['DRAFT', 'OLD'] : Récupère les messages qui ne sont pas récemment arrivés (messages lus) dans le dossier Draft.
