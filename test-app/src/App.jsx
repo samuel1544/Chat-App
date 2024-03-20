@@ -5,7 +5,12 @@ import './App.css'
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sign from './signup/Sign'
 import Login from './page/Login';
-import Signup from './signup/Signup';
+import Navbar from './page/Navbar';
+import Slidebar from './page/slidebar';
+import Drop from './page/Drop';
+import Nav2 from './page/Nav2';
+import Mails from './page/Mails';
+import See from './page/See';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,12 +38,18 @@ function App() {
     //     Click on the Vite and React logos to learn more
     //   </p>
     // </>
+    
     <Router>
       
       <Routes>
           <Route path="/Sign" element={<Sign />} /> 
           <Route path="/Login" element={<Login />} /> 
-          <Route path="/Signup" element={<Signup />} /> 
+          <Route path="/Navbar" element={<Navbar />} /> 
+          <Route path="/Slidebar" element={<Slidebar />} /> 
+          <Route path="/Drop" element={<Drop />} /> 
+          <Route path="/Nav2" element={<Nav2 />} /> 
+          <Route path="/Div" element={<Mails />} /> 
+          <Route path="/See" element={<See />} /> 
       </Routes>
     </Router>
   )

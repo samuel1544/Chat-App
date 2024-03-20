@@ -3,7 +3,7 @@ const config = {
         host: "localhost",
         user: "root",
         password: "1544azebaze",
-        database: "chat",
+        database: "charles_tamba",
     }
 };
 

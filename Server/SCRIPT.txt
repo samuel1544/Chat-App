@@ -1,0 +1,122 @@
+const fs = require('fs');
+const Imap = require('imap');
+const { simpleParser } = require('mailparser');
+
+const imapConfig = {
+  user: 'samuel.charlessamuel03@outlook.com',
+  password: '1544azebaze',
+  host: 'outlook.office365.com',
+  port: 993,
+  tls: true,
+  tlsOptions: { rejectUnauthorized: false },
+};
+
+async function getEmails() {
+  return new Promise((resolve, reject) => {
+    try {
+      const imap = new Imap(imapConfig);
+
+      imap.once('ready', () => {
+        imap.openBox('INBOX', false, () => {
+          imap.search(['SEEN'], (err, results) => {
+            if (err) {
+              console.error(err);
+              reject(err);
+            }
+
+            const f = imap.fetch(results, { bodies: '' });
+
+            const emails = [];
+
+            f.on('message', (msg, seqno) => {
+              msg.on('body', (stream, info) => {
+                simpleParser(stream, (err, parsed) => {
+                  if (err) {
+                    console.error(err);
+                    reject(err);
+                  }
+
+                  const email = {
+                    Email: seqno,
+                    From: parsed.from.text,
+                    Subject: parsed.subject,
+                    Text: parsed.text,
+                    Attachments: parsed.attachments.map((attachment) => ({
+                      Filename: attachment.filename,
+                      ContentType: attachment.contentType,
+                      Data: attachment.content,
+                    })),
+                  };
+                  console.log(email)
+                  emails.push(email);
+
+                  // Enregistrement des pièces jointes sur le disque
+                  parsed.attachments.forEach((attachment) => {
+                    const blobBuffer = Buffer.from(attachment.content);
+                    console.log(blobBuffer)
+
+                    // Remplacez 'C:\\path\\to\\directory' par le chemin d'accès au répertoire souhaité
+                    const filePath = `C:\\Users\\PC\\Documents\\Projet\\Chat-App\\${attachment.filename}`;
+
+                    fs.writeFile(filePath, blobBuffer, (err) => {
+                      if (err) {
+                        console.error('Erreur lors de l\'enregistrement du fichier :', err);
+                        return;
+                      }
+
+                      console.log(`Le fichier ${attachment.filename} a été enregistré.`);
+                    });
+                  });
+                });
+              });
+            });
+
+            f.once('error', (ex) => {
+              console.error('An error occurred while fetching emails:', ex);
+              reject(ex);
+            });
+
+            f.once('end', () => {
+              console.log('Done fetching all messages!');
+              imap.end();
+              resolve(emails);
+            });
+          });
+        });
+      });
+
+      imap.once('error', (err) => {
+        console.error(err);
+        reject(err);
+      });
+
+      imap.once('end', () => {
+        console.log('Connection ended');
+        resolve('connection ended');
+      });
+
+      imap.connect();
+    } catch (ex) {
+      console.error('An error occurred while connecting:', ex);
+      reject(ex);
+    }
+  });
+}
+
+getEmails()
+  .then((emails) => {
+    // Do something with the emails
+    console.log(emails);
+  })
+  .catch((error) => {
+    console.error('An error occurred:', error);
+  });
+
+// Appeler la fonction pour trouver les paramètres IMAP pour votre domaine
+//findImapSettings('your-domain.com');
+
+
+module.exports = {
+    getEmails,
+   // findImapSettings
+}

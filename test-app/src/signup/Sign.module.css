@@ -9,7 +9,7 @@
     text-align:initial;
 }
 body{
-    background: url(../components/Cute.jpg) no-repeat;
+    /* background: url(../components/Cute.jpg) no-repeat; */
     background-size: 100% 143vh;
     background-position: 1% 53%;
     overflow: hidden;

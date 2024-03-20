@@ -1,0 +1,399 @@
+header{
+    width: 100%;
+}
+.All{
+    background-color: #f5f5f5;
+    height: 100vh;
+    width: 100%;
+}
+nav{
+    width: 100%;
+    height: 2.rem;
+    background-color:#0f6cbd;
+    padding: 1.1rem 0 0.5rem 0;
+}
+.menu{
+    position: absolute;
+}
+.log_out button{
+    background: none;
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    top: -0.25rem;
+    margin-right: 5px;
+}
+.log_out img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+nav div{
+    display: inline-block;
+    
+    /* justify-content: space-between; */
+}
+.Log{
+    margin-right: 12rem;
+    color: #fff;
+    margin-left: 3rem;
+}
+.search_block{
+    width: 30%;
+}
+.search_block button{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 22px;
+    margin-left: 5px;
+}
+.search{
+    width: 100%;
+    height: 2rem;
+    padding-left: 35px;
+    border-radius: 5px;
+    border: 0.5px solid rgba(131, 129, 129, 0.144);
+    outline: transparent;
+}
+.search_value{
+    position: absolute;
+    width: 32%;
+    background-color: transparent;
+    height: 7rem;
+    top: 3.3rem;
+    left: 19.1rem;
+    overflow-y: scroll;
+    /* padding-top: 9px; */
+
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+
+}
+.search_value div{
+    background-color: #fff;
+}
+.search_value li{
+    list-style: none;
+    margin-left: 7%;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    height: 30px;
+    cursor: pointer;
+    padding-top: 10px;
+    
+    /* line-height: 10%; */
+    &:hover{
+        background-color: rgb(130, 164, 237);
+    }
+}
+.avatar{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 0.1px solid #ffffff;
+    position: relative;
+    top: -0.7rem;
+    background-color: transparent;
+    margin-left: 15px;
+    color: #fff;
+    cursor: pointer;
+}
+.list{ 
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    /* position: relative; */
+    margin-top: -25px;
+    margin-right: 25px;
+}
+.list,.drop li{
+    list-style: none;
+}
+.user_name{
+    color: #fff;
+    margin-left: 8px;
+}
+.drop{
+    width: 15rem;
+    height: 10rem;
+    position: absolute;
+    right: -5px;
+    top: 4rem;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    text-align: center;
+
+    
+}
+.drop::before{
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 19px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background:antiquewhite;
+}
+.drop.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: 0.2s ease;
+}
+.drop.inactive{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 0.2s ease;
+}
+.LogOut{
+    
+}
+.NewMessage{
+    height: 5rem;
+    width: 80%;
+    position: relative;
+    left: 15px;
+    margin-top: 15px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    background: linear-gradient(281.3deg, rgba(135, 87, 235, 0.84) 9.18%, rgba(97, 88, 233, 0.93) 71.48%);
+    border: none;
+}
+.NewMessage span{
+    background-color: #fff;
+}
+.bon{
+    display: flex;
+    margin-top: 1px;
+}
+.bonbon{
+    display: flex;
+    width: 25rem;
+    border: 1px solid black;
+    background-color: transparent;
+}
+.bonbon.active{
+    width: 25rem;
+    transition: 0.3s ease-in-out;
+}
+.bonbon.inactive{
+    width: 35rem;
+    transition: 1s ease-in-out;
+}
+.sidebar{
+    width: 100rem;
+    height: 40rem;
+    background-color: transparent;
+    position: relative;
+    background-color:transparent;
+    /* border-radius: 15px 0 0 0; */
+
+}
+/* .sidebar div{
+    display: block;
+} */
+.next{
+    /* width: 60rem; */
+    height: 40rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 15px 15px 0px 0;
+    flex-grow: 1;
+    box-shadow: 0.1px 0.1px 0.11px 1px rgba(0, 0, 0, 0.2);
+    /* overflow-y: scroll; */
+
+}
+.next-1{
+    overflow-y: scroll;
+    height: 94%;
+    margin: 0 0px;
+    width: 100%;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar{
+    width: 6px;
+    margin-left: 5px;
+}
+::-webkit-scrollbar-track{
+    background:#f5f5f5;
+}
+::-webkit-scrollbar-thumb{
+    background: #656565;
+    border-radius: 10px;
+}
+.read-unread{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 18px;
+    /* border-bottom: 1px solid black; */
+    text-align: center;
+}
+.read-unread button{
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+
+    &:hover{
+        background-color: rgba(221, 235, 248, 0.315);
+    }
+}
+.read-unread button.selected {
+    /* Ajoutez les styles souhaités pour l'indicateur */
+    border-bottom: 2px solid violet;
+    transition: 0s ease-in-out;
+  }
+.see{
+    flex-grow: 1;
+    
+    border: 1px solid blue;
+}
+.Subject-mail{
+    height: 7%;
+    background-color: #fff;
+    box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.06);
+    margin: 1% 10px;
+    border-radius: 8px;
+    line-height: 45px;
+    padding-left: 3%;
+    font-size: 23px;
+    font-weight: bold;
+}
+.next-2{
+    flex-grow: 1;
+    height: 35rem;
+    background-color: #fff;
+    box-shadow: 3px 2px 3px 1px rgba(0, 0, 0, 0.06);
+    position: relative;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 2%;
+    overflow: hidden;
+    /* left: 15rem;
+    align-self: right;
+    top: -40rem; */
+}
+.next-2 img{
+    width: 25px;
+    height: 25px;
+    margin-top: 1.5%;
+}
+
+.next-2 img:nth-child(n-1){
+    margin-left: 20px;
+}
+.next-2 img:nth-child(4){
+    position: absolute;
+    right: 35px;
+}
+.mail-info{
+    height: 5rem;
+    width: 100%;
+    border: 1px solid blue;
+}
+.mail-info div:nth-child(n-2){
+    display: inline-block;
+}
+.mail-logo{
+    height: 55px;
+    width: 55px;
+    border: 1px solid black;
+    border-radius: 50px;
+    position: relative;
+    top: -18px;
+}
+.mail-from{
+    height: 90%;
+    width: 70%;
+    /* border: 1px solid black; */
+    position: relative;
+    top: -1.3px;
+    margin-left: 20px;
+    margin-top: 8px;
+    /* overflow-y: scroll; */
+}
+.mail-from div{
+    height: 25%;
+    width: 100%;
+    border: 1px solid blue;
+    padding-left: 15px;
+    padding-top: 3px;
+    /* overflow-y: scroll; */
+    
+    &:nth-child(1){
+        font-size: 18px;
+        padding-bottom: 2px;
+    }
+    &:nth-child(2){
+        overflow:auto;
+        width: 100%;
+    }
+}
+.mail-content{
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 95%;
+    height: 75%;
+    overflow-y: scroll;
+    /* text-align: center; */
+}
+
+.sidebar.active{
+    width: 0%;
+    transition: 0.5s ease-in-out;
+}
+.sidebar.inactive{
+    width: 14rem;
+    transition: 1s ease-in-out;
+}
+.next-2.inactive{
+    /* width: 60rem; */
+   
+    transition: 1s ease-out;
+}
+.next-2.active{
+    margin-left: 20px;
+    /* width: 1rem; */
+    transition: 1s ease-out;
+}
+.Subject-mail.active{
+    margin-left: 20px;
+    transition: 1s ease-in-out;
+}
+.Subject-mail.inactive{
+    transition: 1s ease-in-out;
+}
+.next.active{
+    /* width: ; */
+    border-radius: 0;
+    transition: 1s ease-in-out;
+}
+.next.inactive{
+    width: 0%;
+}
+
+/* .bon {
+    display: flex;
+    justify-content: space-between;
+} */
+.two.inactive{
+    
+    transition: 2s ease-in-out;
+}
+.two.active{
+    /* transform: translateX(-15rem); */
+    transition: 2s ease-in-out;
+}
+.two div{
+    display: inline-block;
+}
+.test{
+    position: absolute;
+}
