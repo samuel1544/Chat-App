@@ -1,5 +1,5 @@
 const db = require('./db');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const helper = require('../helper');
 const session = require('express-session');
 const res = require('express/lib/response');
@@ -11,11 +11,13 @@ const nodemailer = require('nodemailer')
 
 
 async function getAll(){
-  const query = `SELECT * FROM user `;
+  const query = `SELECT * FROM virtual_users `;
   const rows = await db.query(query);
   const data = helper.emptyRows(rows);
+  console.log(data)
   return data;
 }
+getAll()
 
 async function getUserInfo(client){
   const query = `SELECT * FROM user WHERE email = ?`;
@@ -33,8 +35,8 @@ async function getUserInfo(client){
 }
 
 async function getUserName(client){
-const query = `SELECT username FROM user WHERE username = ?`;
-const params = [client.username];
+const query = `SELECT email FROM user WHERE email = ?`;
+const params = [client.email];
 const result = await db.query(query,params);
 const data = helper.emptyRows(result);
 console.log(result)
@@ -48,8 +50,8 @@ if (data[0] == null){
 }
 
 async function getUserpassword(client){
-const query = `SELECT password FROM user WHERE username = ?`;
-const params = [client.username];
+const query = `SELECT password FROM user WHERE email = ?`;
+const params = [client.email];
 const result = await db.query(query,params);
 const data = helper.emptyRows(result);
 if (data[0] == null ){
@@ -62,33 +64,46 @@ if (data[0] == null ){
 }
 
 async function compare(client){
-const query = `SELECT password FROM user WHERE username = ?`;
-const params = [client.username];
+const query = `SELECT password FROM user WHERE email = ?`;
+const params = [client.email];
 const result = await db.query(query,params);
 const data = helper.emptyRows(result);
-const verif = await getUserName(client);
+ const verif = await getUserName(client);
 const pass = await getUserpassword(client);
 const info = await getUserInfo(client);
 
-if (data.length === 0) {
+if (pass.length === 0) {
   return 'User does not exist';
 }
-// if (data[0] == null){
-//   let ms = 'User does not exist';
-//   return ms;
-// }
-console.log(data[0].password)
-const valid = await bcrypt.compareSync(client.password, data[1].password);
+if (data[0] == null){
+  let ms = 'User does not exist';
+  return ms;
+}
+console.log(pass[0].password)
+const valid = await bcrypt.compare(client.password, pass[0].password);
 console.log(valid)
-if ((verif[0].username == client.username && valid) || (verif[0].username == client.username && pass[0].password == client.password)) {
-  const token = jwt.sign({nom:info[0].username,id:info[0].id,mail:info[0].email}, 'secret', {expiresIn: '5m'})
+if ((verif[0].email == client.email && valid) || (verif[0].email == client.email && pass[0].password == client.password)) {
+  const token = jwt.sign({nom:info[0].username,id:info[0].Id,mail:info[0].email}, 'secret', {expiresIn: '5m'})
   return {
-    message: 'Connected Successfuly',
+    status: 'Connected',
     token: token
   };
 }
   return 'E-mail or password incorrect';
 
+
+}
+async function userdata(client){
+  try {
+    const data = jwt.verify(client.token, 'secret');
+  // Si le token est valide, decoded contient les informations décodées du token
+  console.log(data);
+  return data
+} catch (err) {
+  // Si une erreur se produit, le token est invalide ou a expiré
+  console.error(err);
+  return 'Token Expired'
+}
 
 }
 
@@ -158,7 +173,7 @@ async function ajoutClient(client){
       return msg;
     }
     const salt = bcrypt.genSaltSync(10);
-    const hash = await bcrypt.hashSync(client.password, salt);
+    const hash =  bcrypt.hashSync(client.password, salt);
     const params = [
           client.username,
           client.email,
@@ -166,13 +181,14 @@ async function ajoutClient(client){
         ];
     const result = await db.query(query, params);
     const data = helper.emptyRows(result);
+    console.log(result)
     let msg = 'Something went wrong during the insertion';
     
     if(result != null){
       msg = 'Data entered sucessfuly!'
-      return msg;
+      return data[0];
     }
-    return data;
+     return data;
   }
   
   }
@@ -184,5 +200,6 @@ async function ajoutClient(client){
     getUserpassword,
     getUserName,
     compare,
-    login
+    login,
+    userdata
   };

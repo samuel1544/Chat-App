@@ -104,5 +104,8 @@ router.get('/pass', async(req, res, next) =>{
 router.post('/compare', async(req, res, next) =>{
     res.json(await client.compare(req.body));
 })
+router.post('/verify', async(req, res, next) =>{
+    res.json(await client.userdata(req.body));
+})
 
 module.exports = router;

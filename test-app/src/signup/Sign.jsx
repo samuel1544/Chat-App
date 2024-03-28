@@ -14,21 +14,30 @@ function Sign() {
     const [username,Setusername] = useState("")
     const [email,Setemail] = useState("")
     const [password,Setpassword] = useState("")  
-
+    const [confpassword,Setconfpassword] = useState("") 
+    const [errormess,Seterrormess] = useState("") 
    const register = (e)=>{
     e.preventDefault();
-    axios.post('http://localhost:4100/client/add', {
+    if(password == confpassword){
+        Seterrormess("")
+        console.log('SAME')
+        axios.post('http://localhost:4100/client/add', {
         username: username,
         email: email,
         password: password,
       })
-      .then(function (response) {
-        console.log(response.data);
-        localStorage.setItem('message',response.data)
+      .then((response) =>{
+        console.log(response);
+        //localStorage.setItem('message',response.data)
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch( (error) =>{
+        console.log(error)
       });
+    }else{
+        console.log('SHIT')
+        Seterrormess("Please your passwords must be thesame")
+    }
+    
    }
   
   return (
@@ -72,10 +81,11 @@ function Sign() {
                             </div>
                             <div>
                                 <label for="">Confirm your password</label><br/>
-                            <input type="password" placeholder="Enter your password" className={Styles.write} />
+                            <input type="password" placeholder="Enter your password" className={Styles.write} onChange={(e) =>{Setconfpassword(e.target.value)}}/>
                             </div>
                             <div>
                                 <button className={Styles.sub} onClick={register}><a href="#">Sign up</a></button>
+                                <p>{errormess}</p>
                             </div>
                         </form>
                          <div className={Styles.create}>

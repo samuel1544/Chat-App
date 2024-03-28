@@ -140,7 +140,7 @@ async function getDeletedMails() {
   });
 }
 
-getDeletedMails()
+//getDeletedMails()
 
 
 const autoconfig = require('autoconfig');

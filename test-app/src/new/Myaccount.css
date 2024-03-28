@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.yup{
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+}
+.user-up{
+    height: 13.2rem;
+    width: 60%;
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 15px;
+}
+.gradient{
+    height: 55%;
+    width: 100%;
+    background: linear-gradient(90deg, #f9f4fa, #f5faf6, #f5faf9);
+    border-top-left-radius: 35px;
+}
+.up-up {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+}
+.user-profile{
+    height: 8rem;
+    width: 8rem;
+    /* border: 1px solid blue; */
+    border-radius: 70px;
+    background: rgb(255,255,255);
+    position: relative;
+    top: -32px;
+    box-shadow: 3px 2px 3px 2px rgba(0, 0, 0, 0.06);
+    margin-left: 50px;
+
+    & div{
+        height: 7.5rem;
+        width: 7.5rem;
+        /* border: 1px solid blue; */
+        border-radius: 60px;
+        margin: 3px auto;
+        background-image: url(../components/speech2.png) ;
+        background-position: center;
+        background-size: cover;
+        background-color: #EFE2E2;
+    }
+}
+.profile-info{
+    height: 5rem;
+    width: 50%;
+    flex-grow: 1;
+    /* border: 1px solid black; */
+    margin-left: 2%;
+    
+    & div:nth-child(1){
+        font-weight: bold;
+        font-size: 27px;
+    }
+    & div:nth-child(2){ 
+        font-size: 15px;
+    }
+    & div:nth-child(3){
+        position: relative;
+        font-size: 15px;
+        left: 55%;
+        top: 1rem;
+    }
+}
+.user-down{
+    
+}
+.user-down {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background: rgba(195, 190, 190, 0.063);
+    height: 16rem;
+    padding: 5rem 0 0 5rem; 
+    
+    & .he{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10rem;
+        width: 50%;
+        
+        & input{
+            height: 1.4rem;
+            margin-top: 2rem;
+            border-radius: 3px;
+            border: 1px solid;
+            outline: transparent;
+            padding-left: 2%;
+            
+        }
+    }
+    & .hes{
+        margin-top: 1.6rem;
+        & div{
+            margin-bottom: 2.75rem;
+        }
+    }
+}
+.yup button{
+    width: 5rem;
+    height: 2rem;
+    background: black;
+    margin-top: 3rem;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    left: 50rem;
+
+    &:hover{
+        background: rgba(11, 11, 11, 0.856);
+        transform: translateY(-2px);
+    }
+}

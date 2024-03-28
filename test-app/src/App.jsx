@@ -11,6 +11,10 @@ import Drop from './page/Drop';
 import Nav2 from './page/Nav2';
 import Mails from './page/Mails';
 import See from './page/See';
+import Myaccount from './new/Myaccount';
+import Security from './new/Security';
+import { RequireToken } from './new/Auth';
+import Dashboard from './new/Dashboard';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -50,6 +54,16 @@ function App() {
           <Route path="/Nav2" element={<Nav2 />} /> 
           <Route path="/Div" element={<Mails />} /> 
           <Route path="/See" element={<See />} /> 
+          <Route path="/Dashboard" element={<Dashboard />} /> 
+          <Route path="/Myaccount" 
+                element={
+              
+                  <RequireToken>
+                    <Myaccount />
+                  </RequireToken>
+                }
+              />  
+          <Route path="/Security" element={<Security />} /> 
       </Routes>
     </Router>
   )

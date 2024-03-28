@@ -1,4 +1,5 @@
 import React from 'react'
+import {useNavigate} from "react-router-dom";
 import './Login.css'
 import notif from '../components/notif.png'
 import emoji from '../components/emoji.png'
@@ -7,11 +8,35 @@ import coeur from '../components/coeur.png'
 import like from '../components/like.png'
 import speech from '../components/speech2.png'
 import { useState } from 'react'
+import axios from 'axios'
+import { setToken } from '../new/Auth';
 
 function Login() {
     const [username,Setusername] = useState("")
     const [email,Setemail] = useState("")
     const [password,Setpassword] = useState("")
+    const navigate = useNavigate();
+    const login = (e)=>{
+        e.preventDefault();
+        console.log({email:email,password:password})
+            axios.post('http://localhost:4100/client/compare', {
+            email: email,
+            password: password,
+          })
+          .then((response) =>{
+            console.log(response);
+            if(response.data.status =='Connected'){
+                setToken(response.data.token)
+                navigate('/Myaccount')
+            } else {
+                //setError(res.data.Error);
+            }
+            //localStorage.setItem('message',response.data)
+          })
+          .catch( (error) =>{
+            console.log(error)
+          });
+        }
   return (
 
         <div className="container">
@@ -49,7 +74,7 @@ function Login() {
                             <input type="password" placeholder="Enter your password" className="write" name="password" required onChange={(e) =>{Setpassword(e.target.value)}}/>
                             </div>
                             <div>
-                                <button className="sub"><a href="#">Login</a></button>
+                                <button className="sub" onClick={login}><a href="#">Login</a></button>
                             </div>
                         </form>
                          <div className="create">

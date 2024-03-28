@@ -190,7 +190,7 @@ async function AddInbox(client){
       console.log(data[0].id_mail)
       return data[0].id_mail;
     }
-    LastseqnoInbox()
+    //LastseqnoInbox()
     async function LastseqnoSent(){
       const query = `SELECT id_mail FROM SENT ORDER BY id_mail DESC LIMIT 1 `;
       const rows = await db.query(query);
@@ -208,7 +208,7 @@ async function AddInbox(client){
       console.log(data)
       return data;
     }
-    LastseqnoDelete();
+    //LastseqnoDelete();
     async function LastseqnoSpam(){
       const query = `SELECT id_mail FROM SPAM ORDER BY id_mail DESC LIMIT 1 `;
       const rows = await db.query(query);

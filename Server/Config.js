@@ -1,9 +1,10 @@
 const config = {
     db:{
-        host: "localhost",
+        host: "192.168.208.148",
+        port: 3306,
         user: "root",
-        password: "1544azebaze",
-        database: "charles_tamba",
+        password: "ktm",
+        database: "messagerie",
     }
 };
 
